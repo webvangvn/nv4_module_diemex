@@ -3,6 +3,7 @@
 /**
  * @Project NUKEVIET 3.4
  * @Author hongoctrien (01692777913@yahoo.com)
+ * @Update to 4.x webvang (hoang.nguyen@webvang.vn)
  * @Copyright (C) 2012 by hongoctrien
  * @Createdate July 05, 2012 10:47:41 AM
  */
