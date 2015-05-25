@@ -9,7 +9,7 @@
 
 if( ! defined( 'NV_IS_FILE_ADMIN' ) ) die( 'Stop!!!' );
 
-$page_title = $lang_module['notice'];
+$page_title = $lang_module['content'];
 
 if( defined( 'NV_EDITOR' ) )
 {
@@ -20,8 +20,9 @@ $content_file = NV_ROOTDIR . '/' . NV_DATADIR . '/' . NV_LANG_DATA . '_' . $modu
 
 if( $nv_Request->get_int( 'save', 'post' ) == '1' )
 {
-	$bodytext = $nv_Request->get_editor( 'bodytext', '', NV_ALLOWED_HTML_TAGS );
+	$bodytext = nv_editor_filter_textarea( 'bodytext', '', NV_ALLOWED_HTML_TAGS, true );
 	file_put_contents( $content_file, $bodytext );
+
 	Header( "Location: " . NV_BASE_ADMINURL . "index.php?" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=" . $op );
 	die();
 }
@@ -74,3 +75,4 @@ include ( NV_ROOTDIR . "/includes/header.php" );
 echo nv_admin_theme( $contents );
 include ( NV_ROOTDIR . "/includes/footer.php" );
 
+?>

@@ -32,7 +32,6 @@ function add( $sbd, $ho, $ten, $lop, $ngsinh, $phong, $toan, $ly, $hoa,  $van, $
         'toan'=>$toan, 
         'ly'=>$ly, 
         'hoa'=>$hoa,
-        
         'van'=>$van,
         'su'=>$su,
         'dia'=>$dia,
@@ -45,7 +44,7 @@ if (isset($_FILES['file']['tmp_name']))
 {
     $notice = "";
     $dom = DOMDocument::load( $_FILES['file']['tmp_name'] );
-    $rows = $dom->getElementsByTagName('Row');
+    $rows = $dom->getElementsByTagName('Row');;
     $first_row = true;
     foreach ($rows as $row)
     {
@@ -127,7 +126,7 @@ $sql = "INSERT INTO " . NV_PREFIXLANG . "_" . $module_data . " ( sbd, ho,ten, lo
 			$data_insert = array();
 
 	$data_insert['sbd'] = $row['sbd'];
-	$data_insert['ho'] = $row['sbd'];
+	$data_insert['ho'] = $row['ho'];
 	$data_insert['ten'] = $row['ten'];
 	$data_insert['lop'] = $row['lop'];
 	$data_insert['ngsinh'] = $row['ngsinh'];
